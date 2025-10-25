@@ -76,7 +76,14 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // console.log(to, 'to')
   if (
-    ['/cart', '/checkout'].includes(to.path) &&
+    [
+      '/cart',
+      '/checkout',
+      '/pay',
+      '/pay/result',
+      '/member/order',
+      '/member'
+    ].includes(to.path) &&
     !useUserStore().userInfo?.token
   ) {
     next('/login')
